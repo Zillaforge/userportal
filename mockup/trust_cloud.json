@@ -245,8 +245,8 @@
     "enabled": false,
     "type": "CERT",
     "pfxPath": "",
-    "certPath": "",
-    "keyPath": "",
+    "certPath": "/mockup/api.trusted-cloud.nchc.org.stg.crt",
+    "keyPath": "/mockup/api.trusted-cloud.nchc.org.stg.key",
     "caPath": "",
     "passphrase": ""
   },

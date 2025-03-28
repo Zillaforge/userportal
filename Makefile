@@ -21,7 +21,8 @@ run-mockup-server:
 
 .PHONY: run-mockup-server-container
 run-mockup-server-container:
+	@yq -iP '.tlsOptions.enabled = true' mockup/trust_cloud.json -o json
 	@docker run -ti --rm  \
-	-v $(PWD)/mockup/trust_cloud.json:/data \
-	-p 80:3000 \
-	mockoon/cli:latest --data data --port 3000
+	-v $(PWD)/mockup/:/mockup/ \
+	-p 443:3000 \
+	mockoon/cli:latest --data /mockup/trust_cloud.json --port 3000

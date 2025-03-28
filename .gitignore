@@ -42,3 +42,8 @@ src/Meta.ts
 
 # eslint
 .eslintcache
+
+# certificate
+*.pem
+*.key
+*.crt
