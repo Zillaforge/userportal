@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/alpine
+{
+  "name": "node.js",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "features": {
+    "ghcr.io/cirolosapio/devcontainers-features/alpine-jq:0": {},
+  },
+  // Add the IDs of extensions you want installed when the container is created.
+  // Note that some extensions may not work in Alpine Linux. See https://aka.ms/vscode-remote/linux.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Vue.volar",
+        "GitHub.copilot",
+        "ritwickdey.LiveServer",
+        "esbenp.prettier-vscode",
+        "RomanKoblov.lprvw",
+        "isudox.vscode-jetbrains-keybindings",
+        "yokawasa.jwt-debugger"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": { "zsh": { "path": "/bin/zsh" } }
+      }
+    }
+  },
+  // "forwardPorts": [3001],
+  "postCreateCommand": "npm i -g @mockoon/cli typescript ; apk add make",
+  // "runArgs": [
+	// 	"--network=host"
+	// ]
+}
