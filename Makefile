@@ -14,3 +14,14 @@ release-image-private:
 	@docker rm -f build-env
 	@docker run --rm --name build-env -v $(PWD):/home/portal -w /home/portal node:18.20.7-slim /bin/bash -c "mkdir -p /tmp/node_modules/; ln -s /tmp/node_modules /home/portal/node_modules; yarn install; yarn build:private; rm -f /home/portal/node_modules"
 	@docker build -f Dockerfile-private -t $(OWNER)/$(IMAGE_NAME):user-pri-$(VERSION) .
+
+.PHONY: run-mockup-server
+run-mockup-server:
+	mockoon-cli start --data ./mockup/trust_cloud.json
+
+.PHONY: run-mockup-server-container
+run-mockup-server-container:
+	@docker run -ti --rm  \
+	-v $(PWD)/mockup/trust_cloud.json:/data \
+	-p 80:3000 \
+	mockoon/cli:latest --data data --port 3000
