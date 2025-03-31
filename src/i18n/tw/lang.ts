@@ -65,6 +65,7 @@ export default {
   'basic.private.site': '私區',
   'basic.platform.name': '國網中心雲平台',
   'basic.trusty.platform': '可信賴雲平台',
+  'basic.pilot.platform': '前導機敏平台',
   'basic.system.back.home': '回主頁',
   'basic.folder': '資料夾',
   'basic.upload': '上傳',

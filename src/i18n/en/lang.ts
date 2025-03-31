@@ -65,6 +65,7 @@ export default {
   'basic.private.site': 'Private',
   'basic.platform.name': 'NCHC Cloud Platform',
   'basic.trusty.platform' : 'Trusted Cloud Platform',
+  'basic.pilot.platform' : 'SensiMesh Platform',
   'basic.system.back.home': 'HOME',
   'basic.folder': 'Folder',
   'basic.upload': 'Upload',
