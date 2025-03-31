@@ -20,7 +20,8 @@
         "esbenp.prettier-vscode",
         "RomanKoblov.lprvw",
         "isudox.vscode-jetbrains-keybindings",
-        "yokawasa.jwt-debugger"
+        "formulahendry.auto-rename-tag",
+        "formulahendry.auto-close-tag"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh",

@@ -19,6 +19,13 @@ release-image-private:
 run-mockup-server:
 	mockoon-cli start --data ./mockup/trust_cloud.json
 
+
+renew-develop-certificate:
+	@mkcert api.trusted-cloud.nchc.org.stg
+	@mv api.trusted-cloud.nchc.org.stg-key.pem mockup/api.trusted-cloud.nchc.org.stg.key
+	@mv api.trusted-cloud.nchc.org.stg.pem mockup/api.trusted-cloud.nchc.org.stg.crt
+
+
 .PHONY: run-mockup-server-container
 run-mockup-server-container:
 	@yq -iP '.tlsOptions.enabled = true' mockup/trust_cloud.json -o json

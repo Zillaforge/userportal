@@ -40,7 +40,7 @@
       "responses": [
         {
           "uuid": "f565b450-cfe8-447b-839d-561dab9da1dc",
-          "body": "{\n  \"userInfo\": {\n    \"userId\": \"b465a64b-0000-0000-0000-403e83ced178\",\n    \"account\": \"000000@narlabs.org.tw\",\n    \"displayName\": \"大老二\",\n    \"description\": \"\",\n    \"extra\": {},\n    \"namespace\": \"ci.asus.com\",\n    \"email\": \"000000@narlabs.org.tw\",\n    \"frozen\": false,\n    \"mfa\": false,\n    \"createdAt\": \"2025-03-27T02:23:57Z\",\n    \"updatedAt\": \"2025-03-28T00:53:01Z\",\n    \"lastLoginAt\": \"2025-03-28T00:53:01Z\"\n  },\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJpYW0gdXNlciBhY2Nlc3MgdG9rZW4iLCJhdWQiOlsiYjQ2NWE2NGItMDAwMC0wMDAwLTAwMDAtNDAzZTgzY2VkMTc4Il0sImV4cCI6MTc0MzIwOTU4MSwibmJmIjoxNzQzMTIzMTgxLCJpYXQiOjE3NDMxMjMxODF9.grpVBpvldx4iRgD2UMgtA88gn3OydHCP2okyZkVWLpg\",\n  \"extra\": {}\n}",
+          "body": "{\n  \"userInfo\": {\n    \"userId\": \"b465a64b-0000-0000-0000-403e83ced178\",\n    \"account\": \"000000@narlabs.org.tw\",\n    \"displayName\": \"大老二\",\n    \"description\": \"\",\n    \"extra\": {},\n    \"namespace\": \"ci.asus.com\",\n    \"email\": \"000000@narlabs.org.tw\",\n    \"frozen\": false,\n    \"mfa\": false,\n    \"createdAt\": \"2025-03-27T02:23:57Z\",\n    \"updatedAt\": \"2025-03-28T00:53:01Z\",\n    \"lastLoginAt\": \"2025-03-28T00:53:01Z\"\n  },\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJpYW0gdXNlciBhY2Nlc3MgdG9rZW4iLCJhdWQiOlsiYjQ2NWE2NGItMDAwMC0wMDAwLTAwMDAtNDAzZTgzY2VkMTc4Il0sImV4cCI6MTk1MzIwOTU4MSwibmJmIjoxNzQzMTIzMTgxLCJpYXQiOjE3NDMxMjMxODF9.WWhTeV2DXFqdSV9URso_v-0qup01EXCfr9etVzfpoS0\",\n  \"extra\": {}\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
