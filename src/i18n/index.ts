@@ -15,7 +15,7 @@ const locale = localStorage.getItem('locale') ?? browserPreferredLang;
 localStorage.setItem('locale', locale);
 
 const i18n = createI18n({
-  locale: 'tw', // set locale
+  locale: localStorage.getItem("locale") ?? "tw",
   messages: { en, tw },
 });
 export default i18n;
