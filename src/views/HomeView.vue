@@ -4,6 +4,7 @@ import { computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 import ServiceSection from '@/components/ServiceSection.vue';
+import { RESOURCE_REGION_TYPE } from '@/constants/Constants';
 import PAGE_TYPES from '@/constants/PAGE_TYPES';
 import SERVICE_TYPES from '@/constants/ServiceTypes';
 import i18n from '@/i18n';
@@ -13,16 +14,13 @@ import {
   getServiceAccess,
   isPublicSite,
 } from '@/utils/utils';
-import {
-  RESOURCE_REGION_TYPE,
-} from '@/constants/Constants';
 
 const { t } = i18n.global;
 const services = computed(() => getServices());
 const router = useRouter();
 const projectStore = useProject();
 const globalStore = useGlobal();
-const { triggerSnackbar, getIsPilotRegion, getCurrentRegion } = globalStore;
+const { triggerSnackbar, getIsPilotRegion } = globalStore;
 const $isPublicSite = isPublicSite();
 const goto = async (routeName: string) => {
   return await router.push({ name: routeName });
@@ -57,10 +55,12 @@ const chips = computed(() => {
   ];
 });
 
-const platform_welcom_message = computed( ()=>{
+const platformWelcomMessage = computed(() => {
   if (globalStore.getCurrentRegion === RESOURCE_REGION_TYPE.PILOT) {
     return t('basic.welcome', { item: t('basic.pilot.platform') });
-  } else if (globalStore.getCurrentRegion === RESOURCE_REGION_TYPE.TRUSTED_PLATFORM) {
+  } else if (
+    globalStore.getCurrentRegion === RESOURCE_REGION_TYPE.TRUSTED_PLATFORM
+  ) {
     return t('basic.welcome', { item: t('basic.trusty.platform') });
   } else {
     return t('basic.welcome', { item: t('basic.trusty.platform') });
@@ -93,7 +93,7 @@ watch(
               'private-title': !$isPublicSite,
             }"
           >
-            {{ platform_welcom_message }}
+            {{ platformWelcomMessage }}
           </span>
         </v-col>
         <v-col cols="12" class="pl-4">
