@@ -30,7 +30,7 @@
     }
   },
   // "forwardPorts": [3001],
-  "postCreateCommand": "npm i -g @mockoon/cli typescript ; apk add make",
+  "postCreateCommand": "npm i -g typescript ; apk add make",
   // "runArgs": [
 	// 	"--network=host"
 	// ]
