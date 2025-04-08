@@ -8,7 +8,7 @@ CPU_ARCH ?= $(shell uname -m)
 release-image-public:
 	@docker build \
 	--platform linux/$(CPU_ARCH) \
-	--build-arg MODE=public \ 
+	--build-arg MODE=public \
 	-t $(OWNER)/$(IMAGE_NAME):user-pub-$(VERSION) -f Dockerfile .
 
 .PHONY: release-image-private
