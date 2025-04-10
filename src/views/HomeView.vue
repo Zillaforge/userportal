@@ -215,8 +215,8 @@ watch(
     background: transparent
       linear-gradient(
         90deg,
-        rgba(215, 238, 253, 1) 0%,
-        rgba(224, 217, 252, 1) 100%
+        rgba(var(--v-theme-service-section-color-start), 1) 0%,
+        rgba(var(--v-theme-service-section-color-end), 1) 100%
       );
   }
 }
@@ -228,8 +228,8 @@ watch(
     background: transparent
       linear-gradient(
         90deg,
-        rgba(224, 217, 252, 1) 0%,
-        rgba(249, 222, 242, 1) 100%
+        rgba(var(--v-theme-service-section-1-color-start), 1) 0%,
+        rgba(var(--v-theme-service-section-1-color-end), 1) 100%
       );
   }
 }
@@ -241,8 +241,8 @@ watch(
     background: transparent
       linear-gradient(
         90deg,
-        rgba(248, 215, 233, 1) 0%,
-        rgba(253, 243, 191, 1) 100%
+        rgba(var(--v-theme-service-section-2-color-start), 1) 0%,
+        rgba(var(--v-theme-service-section-2-color-end), 1) 100%
       );
   }
 }

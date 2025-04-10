@@ -62,7 +62,7 @@ const goto = async (routeName: string) => {
   height: 100%;
   border: 1px solid rgba(var(--v-theme-border), var(--v-border-opacity)) !important;
   cursor: pointer;
-  background-color: rgba(250, 250, 250, 1);
+  background-color: rgba(var(--v-theme-service-card-bg), 1);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   &:hover {
