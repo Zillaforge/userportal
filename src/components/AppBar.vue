@@ -165,6 +165,8 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
       >
         {{ $t('basic.private.site') }}
       </v-chip>
+
+      <!-- 服務 -->
       <v-menu>
         <template #activator="{ props, isActive }">
           <v-btn
@@ -226,6 +228,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
       </v-btn>
     </v-app-bar-title>
 
+    <!-- 語言 -->
     <v-menu v-if="!smAndDown && !hideLanguage" class="language-list-menu">
       <template #activator="{ props, isActive }">
         <v-btn icon :class="{ 'header-active': isActive }" v-bind="props">
@@ -234,6 +237,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
       </template>
       <v-list>
         <v-list-item
+          class="app-bar-list-item"
           :class="{
             'item-selected-color ': $i18n.locale === 'tw',
           }"
@@ -242,6 +246,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
           <span>{{ '中文' }}</span>
         </v-list-item>
         <v-list-item
+          class="app-bar-list-item"
           :class="{
             'item-selected-color ': $i18n.locale === 'en',
           }"
@@ -252,6 +257,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
       </v-list>
     </v-menu>
 
+    <!-- 文件 -->
     <v-menu v-if="!smAndDown" class="language-list-menu">
       <template #activator="{ props, isActive }">
         <v-btn icon :class="{ 'header-active': isActive }" v-bind="props">
@@ -260,12 +266,13 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
       </template>
 
       <v-list>
-        <v-list-item @click="gotoDoc()">
+        <v-list-item class="app-bar-list-item" @click="gotoDoc()">
           <span>{{ $t('basic.document') }}</span>
         </v-list-item>
       </v-list>
     </v-menu>
 
+    <!-- 區域 -->
     <v-menu v-if="!smAndDown && enableSwitchRegion" class="text-h6">
       <template #activator="{ props, isActive }">
         <v-btn :class="{ 'header-active': isActive }" v-bind="props">
@@ -277,6 +284,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
         <v-list-item
           v-for="region in resourceRegion"
           :key="`region-${region.value}`"
+          class="app-bar-list-item"
           :class="{
             'item-selected-color ':
               globalStore.getCurrentRegion === region.value,
@@ -288,6 +296,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
       </v-list>
     </v-menu>
 
+    <!-- dark mode -->
     <v-btn
       v-if="enableTheme"
       icon="mdi-theme-light-dark"
@@ -311,13 +320,16 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
           </v-chip>
         </template>
         <v-list>
-          <v-list-item @click="goTo(PAGE_TYPES.KEY_API)">
+          <v-list-item
+            class="app-bar-list-item"
+            @click="goTo(PAGE_TYPES.KEY_API)"
+          >
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">mdi-key-variant</v-icon>
               <span>{{ $t('keyMgnt.key') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item @click="goTo(PAGE_TYPES.LOGS)">
+          <v-list-item class="app-bar-list-item" @click="goTo(PAGE_TYPES.LOGS)">
             <v-list-item-title class="menu-item d-flex align-center">
               <component
                 :is="SvgMenuIcon"
@@ -327,13 +339,20 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
               <span>{{ $t('logMgnt') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item v-if="isAdmin" @click="toAdminPanel">
+          <v-list-item
+            v-if="isAdmin"
+            class="app-bar-list-item"
+            @click="toAdminPanel"
+          >
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">mdi-shield-account</v-icon>
               <span>{{ $t('services.adminPanel') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item @click="goTo(PAGE_TYPES.SIMULATION)">
+          <v-list-item
+            class="app-bar-list-item"
+            @click="goTo(PAGE_TYPES.SIMULATION)"
+          >
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">mdi-drama-masks</v-icon>
               <span>{{ $t('simulated.user') }}</span>
@@ -341,6 +360,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
           </v-list-item>
           <v-list-item
             v-if="userStore.isCloudinfraUser"
+            class="app-bar-list-item"
             @click="showMfaDlg = true"
           >
             <v-list-item-title class="menu-item d-flex align-center">
@@ -354,6 +374,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
           </v-list-item>
           <v-list-item
             v-if="userStore.isCloudinfraUser"
+            class="app-bar-list-item"
             @click="goTo(PAGE_TYPES.CHANGE_PASSWORD)"
           >
             <v-list-item-title class="menu-item d-flex align-center">
@@ -361,13 +382,13 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
               <span>{{ $t('appBar.account.changePw') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item @click="signOut()">
+          <v-list-item class="app-bar-list-item" @click="signOut()">
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">mdi-logout</v-icon>
               <span>{{ $t('appBar.account.logout') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item>
+          <v-list-item class="app-bar-list-item">
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">mdi-book-clock-outline</v-icon>
               <span>{{ version.verNo }}</span>
@@ -384,26 +405,29 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
           </v-btn>
         </template>
         <v-list>
-          <v-list-item @click="showPrjDlg = true">
+          <v-list-item class="app-bar-list-item" @click="showPrjDlg = true">
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">mdi-apps</v-icon>
               <span>{{ projectStore.getCurrentProject.name }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item @click="showSvcDlg = true">
+          <v-list-item class="app-bar-list-item" @click="showSvcDlg = true">
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">mdi-image-multiple</v-icon>
               <span>{{ $t('appBar.services') }}</span>
             </v-list-item-title>
           </v-list-item>
           <template v-if="!hideLanguage">
-            <v-list-item>
+            <v-list-item class="app-bar-list-item">
               <v-list-item-title class="menu-item d-flex align-center">
                 <v-icon class="mr-3">mdi-web</v-icon>
                 <span>{{ 'Language' }}</span>
               </v-list-item-title>
             </v-list-item>
-            <v-list-item @click="configStore.setLocale('tw')">
+            <v-list-item
+              class="app-bar-list-item"
+              @click="configStore.setLocale('tw')"
+            >
               <v-list-item-title
                 class="menu-item d-flex align-center"
                 :class="$i18n.locale === 'tw' ? 'item-selected-color ' : ''"
@@ -412,7 +436,10 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
                 <span>{{ '中文' }}</span>
               </v-list-item-title>
             </v-list-item>
-            <v-list-item @click="configStore.setLocale('en')">
+            <v-list-item
+              class="app-bar-list-item"
+              @click="configStore.setLocale('en')"
+            >
               <v-list-item-title
                 class="menu-item d-flex align-center"
                 :class="$i18n.locale === 'en' ? 'item-selected-color ' : ''"
@@ -423,7 +450,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
             </v-list-item>
           </template>
           <template v-if="enableSwitchRegion">
-            <v-list-item>
+            <v-list-item class="app-bar-list-item">
               <v-list-item-title class="menu-item d-flex align-center">
                 <v-icon class="mr-3" icon="mdi-cloud-outline" />
                 {{ $t('basic.resource') }}
@@ -432,6 +459,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
             <v-list-item
               v-for="region in resourceRegion"
               :key="`region-xs-${region.value}`"
+              class="app-bar-list-item"
               @click="submitChangeRegion(region.value)"
             >
               <v-list-item-title
@@ -447,13 +475,16 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
               </v-list-item-title>
             </v-list-item>
           </template>
-          <v-list-item>
+          <v-list-item class="app-bar-list-item">
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">mdi-account-circle</v-icon>
               <span>{{ userStore.getUserInfo.displayName }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item @click="goTo(PAGE_TYPES.KEY_API)">
+          <v-list-item
+            class="app-bar-list-item"
+            @click="goTo(PAGE_TYPES.KEY_API)"
+          >
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">
                 <!-- mdi-key-variant -->
@@ -461,7 +492,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
               <span>{{ $t('keyMgnt.key') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item @click="goTo(PAGE_TYPES.LOGS)">
+          <v-list-item class="app-bar-list-item" @click="goTo(PAGE_TYPES.LOGS)">
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3" />
               <!-- <component
@@ -472,7 +503,11 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
               <span>{{ $t('logMgnt') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item v-if="isAdmin" @click="toAdminPanel">
+          <v-list-item
+            v-if="isAdmin"
+            class="app-bar-list-item"
+            @click="toAdminPanel"
+          >
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">
                 <!-- mdi-shield-account -->
@@ -480,7 +515,10 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
               <span>{{ $t('services.adminPanel') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item @click="goTo(PAGE_TYPES.SIMULATION)">
+          <v-list-item
+            class="app-bar-list-item"
+            @click="goTo(PAGE_TYPES.SIMULATION)"
+          >
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">
                 <!-- mdi-drama-masks -->
@@ -490,6 +528,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
           </v-list-item>
           <v-list-item
             v-if="userStore.isCloudinfraUser"
+            class="app-bar-list-item"
             @click="showMfaDlg = true"
           >
             <v-list-item-title class="menu-item d-flex align-center">
@@ -504,6 +543,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
           </v-list-item>
           <v-list-item
             v-if="userStore.isCloudinfraUser"
+            class="app-bar-list-item"
             @click="goTo(PAGE_TYPES.CHANGE_PASSWORD)"
           >
             <v-list-item-title>
@@ -513,7 +553,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
               <span>{{ $t('appBar.account.changePw') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item @click="signOut()">
+          <v-list-item class="app-bar-list-item" @click="signOut()">
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">
                 <!-- mdi-logout -->
@@ -521,7 +561,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
               <span>{{ $t('appBar.account.logout') }}</span>
             </v-list-item-title>
           </v-list-item>
-          <v-list-item>
+          <v-list-item class="app-bar-list-item">
             <v-list-item-title class="menu-item d-flex align-center">
               <v-icon class="mr-3">mdi-book-clock-outline</v-icon>
               <span>{{ version.verNo }}</span>
@@ -642,6 +682,16 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
   min-width: 140px;
   margin-top: 12px;
   margin-left: 12px;
+}
+
+.app-bar-list-item {
+  background-color: rgb(var(--v-theme-app-bar-list-bg));
+  &:hover {
+    background-color: rgba(
+      var(--v-theme-app-bar-list-hover),
+      var(--v-app-bar-list-hover-opacity)
+    );
+  }
 }
 
 .selected-item {

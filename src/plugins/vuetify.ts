@@ -95,6 +95,8 @@ const myCustomLightTheme: ThemeDefinition = {
     'service-section-1-color-end': '#f9def2',
     'service-section-2-color-start': '#f8d7e9',
     'service-section-2-color-end': '#fdf3bf',
+    'app-bar-list-bg': '#FAFAFA',
+    'app-bar-list-hover': '#2a97ff',
   },
   variables: {
     'app-bar-height-px': '64px',
@@ -130,6 +132,7 @@ const myCustomLightTheme: ThemeDefinition = {
     'ripple-opacity': '0.12',
     'box-shadow-opacity': '0.5',
     'list-border-opacity': '0.38',
+    'app-bar-list-hover-opacity': '0.1',
   },
 };
 
@@ -194,7 +197,7 @@ const myCustomDarkTheme: ThemeDefinition = {
     'text-highlight': '#A39FFF',
     'text-tooltip': '#FFFFFF',
     'text-service-type': '#0066CC',
-    'svc-icon-round': '#ffffff12',
+    'svc-icon-round': '#AAB1C3',
     'svc-icon-fill': '#ffffffb3',
     'ripple-color': '#E5F2FF',
     'service-card-bg': '#000000',
@@ -204,6 +207,8 @@ const myCustomDarkTheme: ThemeDefinition = {
     'service-section-1-color-end': '#FCABE7',
     'service-section-2-color-start': '#EB55EB',
     'service-section-2-color-end': '#EF856B',
+    'app-bar-list-bg': '#073346',
+    'app-bar-list-hover': '#073346',
   },
   variables: {
     'app-bar-height-px': '64px',
@@ -238,6 +243,7 @@ const myCustomDarkTheme: ThemeDefinition = {
     'border-disabled-opacity': '0.08',
     'box-shadow-opacity': '0.5',
     'list-border-opacity': '0.38',
+    'app-bar-list-hover-opacity': '0.9',
   },
 };
 
