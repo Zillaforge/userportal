@@ -188,8 +188,8 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
               sm="6"
               md="4"
             >
-              <v-list class="pa-2 service_list">
-                <v-list-item class="service-type">
+              <v-list class="pa-2 service_list menu-list">
+                <v-list-item class="service-type menu-list-item">
                   {{ $t(`services.type.${serviceType}`) }}
                   <v-divider class="divider mt-2" />
                 </v-list-item>
@@ -199,7 +199,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
                 >
                   <v-list-item
                     v-if="!service.hide"
-                    class="icon-color"
+                    class="icon-color menu-list-item"
                     @click="goTo(service.routeName || '')"
                   >
                     <component
@@ -684,6 +684,15 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
   margin-left: 12px;
 }
 
+.menu-list {
+  background-clip: content-box;
+  box-shadow: inset 0 0 0 10px rgb(var(--v-theme-app-bar-list-bg)); 
+}
+
+.menu-list-item {
+  background-color: rgb(var(--v-theme-app-bar-list-bg));
+}
+
 .app-bar-list-item {
   background-color: rgb(var(--v-theme-app-bar-list-bg));
   &:hover {
@@ -707,7 +716,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
 
 .service_list {
   background-color: transparent;
-  color: #000000de;
+  color: var(--v-theme-primary);
   min-width: 300px;
   .v-list-item {
     &:hover {
