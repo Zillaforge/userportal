@@ -36,10 +36,10 @@ const useConfig = defineStore('config', {
       localStorage.setItem('locale', newLocale);
     },
   },
-  persist: {
-    key: import.meta.env.VITE_APP_WEBSTORAGE_NAMESPACE ?? 'vuetify',
-    storage: window.sessionStorage,
-  },
+  // persist: {
+  //   key: import.meta.env.VITE_APP_WEBSTORAGE_NAMESPACE ?? 'vuetify',
+  //   storage: window.sessionStorage,
+  // },
 });
 
 export default useConfig;
