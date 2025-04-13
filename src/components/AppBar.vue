@@ -686,7 +686,7 @@ const getProjectTableTdItem = (item: TableItem, headerKey: string) => {
 
 .menu-list {
   background-clip: content-box;
-  box-shadow: inset 0 0 0 10px rgb(var(--v-theme-app-bar-list-bg)); 
+  box-shadow: inset 0 0 0 10px rgb(var(--v-theme-app-bar-list-bg));
 }
 
 .menu-list-item {
