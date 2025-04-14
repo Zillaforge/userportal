@@ -1,7 +1,7 @@
 ARG NODE_VER=18.20.6
 ARG ALPINE_VER=3.21
 ARG NGINX_VER=1.27.4
-ARG MODE=pub
+ARG MODE=public
 
 FROM node:${NODE_VER}-alpine${ALPINE_VER} AS builder
 
