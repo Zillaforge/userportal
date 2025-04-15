@@ -4,7 +4,7 @@ VERSION ?= $(shell sed -n '2p' src/constants/Version.ts | cut -d\' -f2)
 PWD := $(shell pwd)
 CPU_ARCH ?= $(shell uname -m)
 
-IS_DIRTY := $(shell git diff-index --quiet HEAD -- || echo "-dirty")
+IS_DIRTY := $(shell git diff-index --quiet HEAD ':!.env.*' ':!Makefile'  || echo "-dirty")
 TAG_OR_COMMIT := $(shell git describe --contains `git rev-parse --short HEAD` 1>&2 2> /dev/null || git rev-parse --short HEAD)
 
 sed = sed
