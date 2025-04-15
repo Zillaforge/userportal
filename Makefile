@@ -37,14 +37,21 @@ release-image-private: set-version
 
 .PHONY: run-public-container
 run-public-container:
-	@docker run -ti --rm \
-	-p 80:80 \
-	-e API_URL=https://api.trusted-cloud.nchc.org.stg \
+	@docker run -d --rm \
+	-p 9999:80 \
+	-e API_URL=http://api.127-0-0-1.nip.io:7777 \
+	-e ADMIN_PANEL=http://admin.127-0-0-1.nip.io:8888 \
+	--name user-portal-pub \
 	$(OWNER)/$(IMAGE_NAME):user-pub-${TAG_OR_COMMIT}${IS_DIRTY}
+	@docker exec user-portal-pub sh -c "sed -i '/Content-Security-Policy/d' /etc/nginx/nginx.conf"
+	@docker exec user-portal-pub sh -c "nginx -s reload"
 
 .PHONY: run-private-container
 run-private-container:
-	@docker run -ti --rm \
-	-p 80:80 \
-	-e API_URL=https://api.trusted-cloud.nchc.org.stg \
+	@docker run -d --rm \
+	-p 9999:80 \
+	-e API_URL=http://api.127-0-0-1.nip.io:7777 \
+	-e ADMIN_PANEL=http://admin.127-0-0-1.nip.io:8888 \
 	$(OWNER)/$(IMAGE_NAME):user-pri-${TAG_OR_COMMIT}${IS_DIRTY}
+	@docker exec user-portal-pub sh -c "sed -i '/Content-Security-Policy/d' /etc/nginx/nginx.conf"
+	@docker exec user-portal-pub sh -c "nginx -s reload"
