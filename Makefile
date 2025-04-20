@@ -52,6 +52,7 @@ run-private-container:
 	-p 9999:80 \
 	-e API_URL=http://api.127-0-0-1.nip.io:7777 \
 	-e ADMIN_PANEL=http://admin.127-0-0-1.nip.io:8888 \
-	$(OWNER)/$(IMAGE_NAME):user-pri-${TAG_OR_COMMIT}${IS_DIRTY}
-	@docker exec user-portal-pub sh -c "sed -i '/Content-Security-Policy/d' /etc/nginx/nginx.conf"
-	@docker exec user-portal-pub sh -c "nginx -s reload"
+	$(OWNER)/$(IMAGE_NAME):user-pri-${TAG_OR_COMMIT}${IS_DIRTY} \
+	--name user-portal-pri \
+	@docker exec user-portal-pri sh -c "sed -i '/Content-Security-Policy/d' /etc/nginx/nginx.conf"
+	@docker exec user-portal-pri sh -c "nginx -s reload"

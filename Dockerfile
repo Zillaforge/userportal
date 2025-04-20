@@ -54,6 +54,11 @@ FROM nginx:${NGINX_VER}-alpine${ALPINE_VER}-slim AS release
 ADD rewrite-portalConfig.sh /docker-entrypoint.d
 RUN /bin/sh -c 'chmod +x /docker-entrypoint.d/rewrite-portalConfig.sh'
 
-COPY --from=builder /userportal/dist-* /usr/share/nginx/html
+RUN chown -R nginx:nginx /usr/share/nginx/html && \
+    chown -R nginx:nginx /etc/nginx
+
+COPY --from=builder --chown=nginx:nginx /userportal/dist-* /usr/share/nginx/html
+
+USER nginx
 
 ADD nginx.conf /etc/nginx/nginx.conf
