@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useProject, useGlobal } from '@/store';
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
 import ServiceSection from '@/components/ServiceSection.vue';
@@ -20,7 +20,7 @@ const services = computed(() => getServices());
 const router = useRouter();
 const projectStore = useProject();
 const globalStore = useGlobal();
-const { triggerSnackbar, getIsPilotRegion } = globalStore;
+const { triggerSnackbar } = globalStore;
 const $isPublicSite = isPublicSite();
 const goto = async (routeName: string) => {
   return await router.push({ name: routeName });
@@ -66,13 +66,6 @@ const platformWelcomMessage = computed(() => {
     return t('basic.welcome', { item: t('basic.trusty.platform') });
   }
 });
-
-watch(
-  () => getIsPilotRegion,
-  () => {
-    void projectStore.fetchMyProjectList();
-  }
-);
 </script>
 <template>
   <div class="home-container">
