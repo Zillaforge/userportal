@@ -433,6 +433,8 @@ export default {
   's3.upload.reupload': 'Reupload',
   's3.upload.reuploadAll': 'Reupload All',
   's3.upload.folder.errorMessage': '{number} item(s) failed to upload.',
+  's3.upload.fileSize.message': 'File upload limit: A single file must not exceed {size}',
+  's3.upload.fileSize.error': 'File size exceeds the limit | {number} item(s) exceed the size limit',
   's3.usage': 'View Usage',
   's3.usage.warning': 'The usage is updated every few hours, not in real time.',
   's3.usage.quota': 'Storage Usage (Used / Allocated):',

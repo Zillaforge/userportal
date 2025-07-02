@@ -72,6 +72,7 @@ export interface S3UploadFile extends File {
   isFolder?: boolean;
   count?: number;
   uploadProgress?: number;
+  invalid?: number;
 }
 
 export interface S3DeleteObject {

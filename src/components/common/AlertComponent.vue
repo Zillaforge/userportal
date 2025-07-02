@@ -29,7 +29,7 @@ defineProps({
 .v-alert {
   border-radius: 8px !important;
   padding: 14px 18px !important;
-  height: 48px !important;
+  min-height: 48px !important;
   &.text-error {
     background-color: rgba(
       var(--v-theme-alert-color),

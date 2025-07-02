@@ -27,6 +27,8 @@ interface DisplayItem {
   isFolder: boolean;
   count: number;
   size: number;
+  folderInvalidCount?: number; // 計算 folder 中不符合限制的檔案數
+  folderUploadTotalSize?: number; // 計算 folder 實際上傳的大小
 }
 
 const showDialog = defineModel<boolean>('show', { required: true });
@@ -56,6 +58,7 @@ const {
 
 const RENDER_LENGTH = 20;
 const BATCH_UPLOAD_LIMIT_NUM = 3;
+const MAX_FILE_SIZE = 46 * 1024 * 1024 * 1024;
 const enum UPLOAD_STATUS {
   INIT = 'init',
   UPLOADING = 'uploading',
@@ -80,13 +83,23 @@ const errorFolderInfo = ref<Record<string, string[]>>({}); // {[folderName]: err
 const totalSize = computed(() => {
   let size = 0;
   uploadFileList.value.forEach(file => {
-    size += file.size;
+    if (file.size <= MAX_FILE_SIZE) {
+      size += file.size;
+    }
   });
   return size;
 });
 
 const totalCount = computed(() => {
-  return uploadFileList.value.filter(file => !file.isFolder).length;
+  return uploadFileList.value.filter(
+    file => !file.isFolder && file.size <= MAX_FILE_SIZE
+  ).length;
+});
+
+const uploadCount = computed(() => {
+  return uploadFileList.value.filter(
+    file => !!file.isFolder || (!file.isFolder && file.size <= MAX_FILE_SIZE)
+  ).length;
 });
 
 const submitAction = () => {
@@ -222,6 +235,7 @@ const uploadFiles = async () => {
   uploadStatus.value = UPLOAD_STATUS.UPLOADING;
 
   const sortedFiles = uploadFileList.value
+    .filter(file => file.size <= MAX_FILE_SIZE)
     .sort((a, b) => {
       const aValue = a.name;
       const bValue = b.name;
@@ -391,7 +405,7 @@ const updateUploadProgress = () => {
       // 資料夾的總大小已經有計算過並記錄在 infiniteList 中, 所以可以直接拿不用再計算一次
       const folderTotal = infiniteList.value.find(
         file => file.name === folderName
-      )?.size;
+      )?.folderUploadTotalSize;
 
       // 2. 計算整個資料夾目前的上傳百分比
       if (folderTotal) {
@@ -592,7 +606,7 @@ watch(dropFileList, newVal => {
 });
 
 watch(uploadFileList, newVal => {
-  const fileList = newVal.map(file => ({
+  const fileList: DisplayItem[] = newVal.map(file => ({
     name: file.name ?? '',
     isFolder: file.isFolder ?? false,
     count: file.count ?? 0,
@@ -610,6 +624,17 @@ watch(uploadFileList, newVal => {
         fileList[index].count += file.count;
       } else {
         fileList[index].size += file.size;
+        if (file.size > MAX_FILE_SIZE) {
+          if (!fileList[index].folderInvalidCount) {
+            fileList[index].folderInvalidCount = 0;
+          }
+          fileList[index].folderInvalidCount += 1;
+        } else {
+          if (!fileList[index].folderUploadTotalSize) {
+            fileList[index].folderUploadTotalSize = 0;
+          }
+          fileList[index].folderUploadTotalSize += file.size;
+        }
       }
     }
   });
@@ -649,7 +674,7 @@ watch(s3UploadProgress, updateUploadProgress, {
     "
     :title="$t('basic.upload')"
     :disable-submit="
-      uploadStatus === UPLOAD_STATUS.UPLOADING || uploadFileList.length === 0
+      uploadStatus === UPLOAD_STATUS.UPLOADING || uploadCount === 0
     "
     :submit-btn-text="
       uploadStatus === UPLOAD_STATUS.ERROR ? $t('s3.upload.reuploadAll') : ''
@@ -661,6 +686,13 @@ watch(s3UploadProgress, updateUploadProgress, {
   >
     <template #info>
       <v-row no-gutters class="px-4">
+        <v-col cols="12" class="ocis-content-key">
+          {{
+            $t('s3.upload.fileSize.message', {
+              size: formatBytes(MAX_FILE_SIZE),
+            })
+          }}
+        </v-col>
         <v-col cols="4" sm="2" class="ocis-content-key">
           {{ $t('label.name.type', { type: $t('s3.bucket') }) }}
         </v-col>
@@ -712,10 +744,10 @@ watch(s3UploadProgress, updateUploadProgress, {
       <div @dragenter="onDragEnter">
         <v-row no-gutters class="border align-center header-row">
           <v-col cols="4">{{ $t('label.name') }}</v-col>
-          <v-col cols="3">
+          <v-col cols="4">
             {{ $t('label.size') }}
           </v-col>
-          <v-col cols="5" class="pl-2 d-flex justify-space-between">
+          <v-col cols="4" class="pl-2 d-flex justify-space-between">
             <span>{{ $t('s3.upload.progress') }}</span>
             <span v-if="uploadStatus === UPLOAD_STATUS.ERROR">
               {{ $t('s3.upload.reupload') }}
@@ -744,16 +776,28 @@ watch(s3UploadProgress, updateUploadProgress, {
               <v-col cols="4" class="single-ellipsis pr-2">
                 {{ file.name }}
               </v-col>
-              <v-col cols="3">
+              <v-col cols="4">
                 <span v-if="file.isFolder">
                   {{
-                    `${$tc('basic.items', file.count, { number: file.count })} - `
+                    `${$tc('basic.items', file.count, { number: file.count })} - ${formatBytes(file.size)}`
                   }}
+                  <div v-if="!!file.folderInvalidCount" class="text-error">
+                    {{
+                      $tc('s3.upload.fileSize.error', 2, {
+                        number: file.folderInvalidCount,
+                      })
+                    }}
+                  </div>
                 </span>
-                {{ formatBytes(file.size) }}
+                <span v-else>
+                  {{ formatBytes(file.size) }}
+                  <div v-if="file.size > MAX_FILE_SIZE" class="text-error">
+                    {{ $t('s3.upload.fileSize.error') }}
+                  </div>
+                </span>
                 <div
                   v-if="errorFolderInfo[file.name]?.length > 0"
-                  class="text-error"
+                  class="text-error folder-error-info"
                 >
                   {{
                     $t('s3.upload.folder.errorMessage', {
@@ -762,11 +806,12 @@ watch(s3UploadProgress, updateUploadProgress, {
                   }}
                 </div>
               </v-col>
-              <v-col cols="5" class="d-flex align-center pl-2">
+              <v-col cols="4" class="d-flex align-center pl-2">
                 <v-progress-linear
                   v-model="displayUploadProgress[file.name]"
                   class="mr-2 upload-progress"
                   :color="
+                    (!file.isFolder && file.size > MAX_FILE_SIZE) ||
                     displayUploadProgress[file.name] === -1 ||
                     errorFolderInfo[file.name]?.length > 0
                       ? 'error'
@@ -875,6 +920,9 @@ watch(s3UploadProgress, updateUploadProgress, {
   min-height: 48px;
   max-height: 48px;
   padding: 0px 8px 0px 16px;
+  &:has(.folder-error-info) {
+    max-height: 64px;
+  }
 }
 
 .scroll-view {
@@ -924,10 +972,11 @@ watch(s3UploadProgress, updateUploadProgress, {
 
 .upload-progress-percentage {
   width: 40px !important;
+  min-height: 20px !important;
 }
 
 .upload-icon {
-  width: 21px !important;
+  width: 56px !important;
 }
 
 .single-ellipsis {

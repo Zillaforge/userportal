@@ -433,6 +433,8 @@ export default {
   's3.upload.reupload': '重新上傳',
   's3.upload.reuploadAll': '全部重新上傳',
   's3.upload.folder.errorMessage': '{number} 個項目上傳失敗',
+  's3.upload.fileSize.message': '檔案上傳限制: 單一檔案不得超過 {size}',
+  's3.upload.fileSize.error': '檔案大小超過上限 | {number} 個檔案大小超過上限',
   's3.usage': '查看用量',
   's3.usage.warning': '用量資訊約數小時更新一次，非即時資訊。',
   's3.usage.quota': '儲存用量 (已用量 / 配額)：',

@@ -269,6 +269,8 @@ const execBatchUploadS3Objects = async (
             updateUploadRequestFunc: request => {
               s3UploadRequest.value[params.Key] = request;
             },
+          }).catch(() => {
+            s3AbortUploadList.value.push(params.Key);
           })
       )
     ).then(res => {
