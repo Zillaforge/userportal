@@ -19,7 +19,9 @@ import UiContainer from '@/components/common/UiContainer.vue';
 import useProjectSwitch from '@/composables/useProjectSwitch';
 import useVm from '@/composables/useVm';
 import PAGE_TYPES from '@/constants/PAGE_TYPES';
+import { VM_VOLUME_MAX_SIZE } from '@/constants/VmConstants';
 import { type Volume, VolumeOptions } from '@/interfaces/VmInterface';
+
 const { setProjectSwitchCallback } = useProjectSwitch();
 const { t, router, projectId } = useVm(PAGE_TYPES.VM_VOLUME_CREATE);
 
@@ -184,9 +186,10 @@ const getErrorSteps = () => {
                 >
                   <TextFieldWithHint
                     v-model="volumeCreate.size"
-                    :title="$t('label.volume.size') + ' (GB)'"
+                    :title="$t('vm.volume.size')"
                     :label="$t('vm.virtual.volume.size')"
                     :type="'number'"
+                    :max-val="VM_VOLUME_MAX_SIZE"
                     :required="true"
                     :text-field-col="6"
                     @form-error="
@@ -277,7 +280,7 @@ const getErrorSteps = () => {
                 :value="selectedSnapshot?.name"
               />
               <CheckItem
-                :key-name="$t('label.volume.size') + ' (GB)'"
+                :key-name="$t('vm.volume.size')"
                 :value="
                   volumeCreate.from === VolumeOptions.CREATE
                     ? volumeCreate?.size?.toString()

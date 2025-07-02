@@ -160,7 +160,7 @@ const detailItems = computed((): any[] => [
   { text: t('services.virtualNetwork'), key: 'networkName' },
   { text: t('label.createdAt'), key: 'createdAt', isDateString: true },
   {
-    text: t('label.volume.size.unit'),
+    text: t('vm.volume.size'),
     key: 'size',
     button: {
       label: t('action.extend'),

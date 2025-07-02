@@ -11,6 +11,7 @@ import TitleComp from '@/components/common/TitleComponent.vue';
 import UiContainer from '@/components/common/UiContainer.vue';
 import useProjectSwitch from '@/composables/useProjectSwitch';
 import PAGE_TYPES from '@/constants/PAGE_TYPES';
+import { VM_VOLUME_MAX_SIZE } from '@/constants/VmConstants';
 import i18n from '@/i18n';
 import router from '@/router';
 
@@ -147,7 +148,8 @@ const errSteps = computed(() => {
                   ref="sizeInputRef"
                   v-model="size"
                   type="number"
-                  :title="$t('label.volume.size.unit')"
+                  :max-val="VM_VOLUME_MAX_SIZE"
+                  :title="$t('vm.volume.size')"
                   required
                   :text-field-col="6"
                   @form-error="
@@ -176,7 +178,7 @@ const errSteps = computed(() => {
               :error-msg="formError.virtualNetwork"
             />
             <CheckItem
-              :key-name="$t('label.volume.size.unit')"
+              :key-name="$t('vm.volume.size')"
               :value="size"
               :error-msg="formError.size"
             />

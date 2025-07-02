@@ -30,7 +30,10 @@ import useProjectSwitch from '@/composables/useProjectSwitch';
 import useVm from '@/composables/useVm';
 import Document from '@/constants/Document';
 import PAGE_TYPES from '@/constants/PAGE_TYPES';
-import { snapShotDetailHeader } from '@/constants/VmConstants';
+import {
+  snapShotDetailHeader,
+  VM_VOLUME_MAX_SIZE,
+} from '@/constants/VmConstants';
 import i18n from '@/i18n';
 import { type Snapshot } from '@/interfaces/VmInterface';
 import { formatDateSec } from '@/utils/utils';
@@ -66,6 +69,8 @@ const volumeDetail: Ref<Record<string, any>> = ref({ basicInfo: [] });
 const volumeSnapShotDetail: Ref<Record<string, any>[]> = ref([]);
 
 const interval: Ref<number> = ref(0);
+
+const extendDialogFormError = ref();
 
 const expansionPanels = computed(() => [
   { title: t('label.basicInfo'), value: 'basicInfo' },
@@ -124,7 +129,7 @@ const fetchDetail = async (skipProgress: boolean = false) => {
       statusHint: volumeDetail.value.status_reason,
     },
     {
-      text: t('label.volume.size.unit'),
+      text: t('vm.volume.size'),
       value: volumeDetail.value.size,
       button: t('basic.extend'),
       callback: () => {
@@ -370,6 +375,8 @@ const openAttachDialog = async () => {
 };
 
 const openExtendDialog = () => {
+  extendSize.value = 0;
+  extendDialogFormError.value = undefined;
   showExtendDialog.value = true;
 };
 
@@ -552,6 +559,7 @@ const extendVolume = async () => {
       v-model:show="showExtendDialog"
       :title="$t('vm.volume.extend')"
       :submit-callback="extendVolume"
+      :disable-submit="!!extendDialogFormError"
     >
       <TextFieldWithHint
         v-model="volumeDetail.name"
@@ -560,14 +568,20 @@ const extendVolume = async () => {
       />
       <TextFieldWithHint
         v-model="volumeDetail.size"
-        :title="$t('label.volume.size.unit')"
+        :title="$t('vm.volume.size')"
         plain-text
       />
       <TextFieldWithHint
         v-model="extendSize"
-        :title="$t('vm.volume.extend')"
+        :title="`${$t('vm.volume.extend')} (GiB)`"
+        :max-val="VM_VOLUME_MAX_SIZE - volumeDetail.size"
         type="number"
         required
+        @form-error="
+          event => {
+            extendDialogFormError = event[0];
+          }
+        "
       />
       <TextFieldWithHint
         :model-value="Number(volumeDetail.size) + Number(extendSize)"

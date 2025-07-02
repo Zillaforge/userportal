@@ -170,7 +170,7 @@ const getFileSharingListHeaders = () => {
       key: 'network.name',
     },
     {
-      title: t('label.volume.size'),
+      title: t('vm.volume.size'),
       key: 'size',
     },
     {
@@ -355,7 +355,7 @@ const getVmVolumeListHeaders = () => {
       key: 'type',
     },
     {
-      title: t('label.volume.size'),
+      title: t('vm.volume.size'),
       key: 'size',
     },
     {

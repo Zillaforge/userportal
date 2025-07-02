@@ -842,7 +842,7 @@ const detachNetwork = async (network: Network) => {
                             align: 'start',
                           },
                           {
-                            title: $t('label.volume.size.unit'),
+                            title: $t('vm.volume.size'),
                             key: 'size',
                             align: 'start',
                           },

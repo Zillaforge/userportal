@@ -31,22 +31,3 @@ export const volumeHeaders = computed(() => [
     value: 'type',
   },
 ]);
-
-export const securityGroupHeaders = computed(() => [
-  {
-    title: t('vm.sg.traffic'),
-    value: 'name',
-  },
-  {
-    title: t('vm.volume.size'),
-    value: 'size',
-  },
-  {
-    title: t('label.type'),
-    value: 'type',
-  },
-  {
-    title: t('label.createdAt'),
-    value: 'created_at',
-  },
-]);

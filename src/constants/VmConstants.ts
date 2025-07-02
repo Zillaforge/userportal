@@ -4,6 +4,8 @@ import i18n from '@/i18n';
 
 const { t } = i18n.global;
 
+export const VM_VOLUME_MAX_SIZE = 65536;
+
 export const PROTOCOL = {
   HTTP: 'HTTP',
   HTTPS: 'HTTPS',
@@ -67,25 +69,6 @@ export const volumeHeaders = computed(() => [
   {
     title: t('label.type'),
     key: 'type',
-  },
-]);
-
-export const securityGroupHeaders = computed(() => [
-  {
-    title: t('vm.sg.traffic'),
-    key: 'name',
-  },
-  {
-    title: t('vm.volume.size'),
-    key: 'size',
-  },
-  {
-    title: t('label.type'),
-    key: 'type',
-  },
-  {
-    title: t('label.createdAt'),
-    key: 'created_at',
   },
 ]);
 

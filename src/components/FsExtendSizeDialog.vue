@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 import CommonDialog from '@/components/common/CommonDialog.vue';
 import TextFieldWithHint from '@/components/common/TextFieldWithHint.vue';
+import { VM_VOLUME_MAX_SIZE } from '@/constants/VmConstants';
 
 const minVal = 1;
-const maxVal = 100;
 
 const showDialog = defineModel<boolean>('show', { required: true });
-defineProps({
+const props = defineProps({
   fsName: {
     type: String,
     default: '',
@@ -22,6 +22,8 @@ defineProps({
 defineEmits(['submit']);
 
 const newSize = ref('0');
+
+const maxVal = computed(() => VM_VOLUME_MAX_SIZE - props.originalSize);
 
 watch(showDialog, val => {
   if (val) {
@@ -48,13 +50,13 @@ watch(showDialog, val => {
     />
     <TextFieldWithHint
       :model-value="originalSize"
-      :title="$t('label.volume.size.unit')"
+      :title="$t('vm.volume.size')"
       plain-text
     />
     <TextFieldWithHint
       v-model="newSize"
       type="number"
-      :title="$t('vm.volume.extend')"
+      :title="`${$t('vm.volume.extend')} (GiB)`"
       :min-val="minVal"
       :max-val="maxVal"
       required

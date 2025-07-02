@@ -6,6 +6,7 @@ import TextFieldWithHint from './common/TextFieldWithHint.vue';
 
 import CommonDialog from '@/components/common/CommonDialog.vue';
 import MultipleInputSetter from '@/components/common/MultipleInputSetter.vue';
+import { VM_VOLUME_MAX_SIZE } from '@/constants/VmConstants';
 import { type Volume } from '@/interfaces/VmInterface';
 
 const showDialog = defineModel<boolean>('show', { required: true });
@@ -99,8 +100,9 @@ const volumeOptions = computed(() => {
         <v-col cols="12">
           <TextFieldWithHint
             v-model="volumeCreate.size"
-            :title="$t('label.volume.size') + ' (GB)'"
+            :title="$t('vm.volume.size')"
             :type="'number'"
+            :max-val="VM_VOLUME_MAX_SIZE"
             :required="true"
           />
         </v-col>
