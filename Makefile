@@ -41,6 +41,7 @@ run-public-container:
 	-p 9999:80 \
 	-e API_URL=http://api.127-0-0-1.nip.io:7777 \
 	-e ADMIN_PANEL=http://admin.127-0-0-1.nip.io:8888 \
+	-e DATA_STORAGE=http://api.127-0-0-1.nip.io:7777 \
 	--name user-portal-pub \
 	$(OWNER)/$(IMAGE_NAME):user-pub-${TAG_OR_COMMIT}${IS_DIRTY}
 	@docker exec user-portal-pub sh -c "sed -i '/Content-Security-Policy/d' /etc/nginx/nginx.conf"
