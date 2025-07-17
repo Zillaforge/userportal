@@ -1,0 +1,83 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="56"
+    height="56"
+    viewBox="0 0 56 56"
+  >
+    <defs>
+      <filter
+        id="state-machine"
+        x="6.166"
+        y="10.334"
+        width="43.667"
+        height="41.334"
+        filterUnits="userSpaceOnUse"
+      >
+        <feOffset dy="3" input="SourceAlpha" />
+        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feFlood flood-opacity="0.161" />
+        <feComposite operator="in" in2="blur" />
+        <feComposite in="SourceGraphic" />
+      </filter>
+    </defs>
+    <g
+      id="icon_HPC_遠端派送服務_56"
+      data-name="icon_HPC 遠端派送服務_56"
+      transform="translate(-36 -81)"
+    >
+      <circle
+        id="Ellipse_1064"
+        data-name="Ellipse 1064"
+        cx="28"
+        cy="28"
+        r="28"
+        transform="translate(36 81)"
+        :fill="iconColor.round"
+      />
+      <g
+        id="state-machine-2"
+        data-name="state-machine"
+        transform="translate(-16637 17472)"
+      >
+        <rect
+          id="Rectangle_6209"
+          data-name="Rectangle 6209"
+          width="28"
+          height="28"
+          transform="translate(16687 -17377)"
+          fill="none"
+        />
+        <g
+          transform="matrix(1, 0, 0, 1, 16673, -17391)"
+          filter="url(#state-machine)"
+        >
+          <path
+            id="state-machine-3"
+            data-name="state-machine"
+            d="M7.148,19.558A3.492,3.492,0,1,1,4.5,18.333a2.184,2.184,0,0,1,.618.058L8.7,12.138,6.67,10.983l4.772-1.307,1.307,4.772-2.03-1.155-3.57,6.265m16.018-1.225a3.512,3.512,0,0,0-3.29,2.333h-7.21V18.333l-3.5,3.5,3.5,3.5V23h7.21a3.5,3.5,0,1,0,3.29-4.667M13.833,9a2.184,2.184,0,0,0,.618-.058L18.033,15.2,16,16.35l4.772,1.307,1.307-4.772-2.03,1.155-3.57-6.265A3.492,3.492,0,1,0,13.833,9Z"
+            transform="translate(14.17 14.33)"
+            :fill="iconColor.icon"
+          />
+        </g>
+      </g>
+    </g>
+  </svg>
+</template>
+<script lang="ts" setup>
+import { computed } from 'vue';
+
+import useSvgIcons from '@/composables/useSvgIcons';
+
+const props = defineProps({
+  colorful: {
+    type: Boolean,
+    default: true,
+  },
+});
+const { getSvgThemeColor, IconKeys } = useSvgIcons();
+const iconColor = computed(() => {
+  return getSvgThemeColor(props.colorful, IconKeys.hpc_deliver);
+});
+</script>

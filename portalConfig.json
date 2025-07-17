@@ -1,0 +1,7 @@
+{
+  "API_URL": "http://10.78.19.249",
+  "S3_ENDPOINT": "http://10.78.19.216",
+  "BASE_DOMAIN": "http://10.78.19.100",
+  "IMAGE_REGISTRY": "container.trusted-cloud.nchc.org.stg",
+  "DATA_STORAGE": "http://10.78.19.99"
+}

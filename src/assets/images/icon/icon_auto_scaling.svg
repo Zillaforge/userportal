@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <filter id="Union_4" x="4.292" y="7.291" width="47.416" height="47.416" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="icon_自動擴展_56" transform="translate(-36 -81)">
+    <circle id="Ellipse_1064" data-name="Ellipse 1064" cx="28" cy="28" r="28" transform="translate(36 81)" fill="#0186c5"/>
+    <g id="Group_3788" data-name="Group 3788" transform="translate(50 95)">
+      <rect id="Rectangle_2152" data-name="Rectangle 2152" width="28" height="28" transform="translate(0 0)" fill="none"/>
+      <g transform="matrix(1, 0, 0, 1, -14, -14)" filter="url(#Union_4)">
+        <path id="Union_4-2" data-name="Union 4" d="M10542.5,18626.5h7l-3.5,3.5Zm2.917-1.406-7-4.041a1.161,1.161,0,0,1-.58-1.01v-8.084a1.168,1.168,0,0,1,.58-1.01l7-4.039a1.15,1.15,0,0,1,1.164,0l7,4.039a1.162,1.162,0,0,1,.585,1.01v8.084a1.155,1.155,0,0,1-.585,1.01l-7,4.041a1.191,1.191,0,0,1-.584.158A1.177,1.177,0,0,1,10545.418,18625.092Zm1.749-3.031,3.5-2.02-3.5-2.02Zm-5.835-2.02,3.5,2.02v-4.039Zm7-4.039,3.5,2.02v-4.045Zm-8.164,2.02,3.5-2.02-3.5-2.025Zm7-4.045,3.5-2.02-3.5-2.02Zm-4.082-3.029-1.753,1.01,3.5,2.02v-4.039Zm13.414,1.553,3.5,3.5-3.5,3.5Zm-24.5,3.5,3.5-3.5v7Zm10.5-10.5,3.5-3.5,3.5,3.5Z" transform="translate(-10518 -18588)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

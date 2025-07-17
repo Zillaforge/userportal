@@ -1,0 +1,75 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="56"
+    height="56"
+    viewBox="0 0 56 56"
+  >
+    <defs>
+      <filter
+        id="Path_17252"
+        x="5"
+        y="8"
+        width="46"
+        height="44.834"
+        filterUnits="userSpaceOnUse"
+      >
+        <feOffset dy="3" input="SourceAlpha" />
+        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feFlood flood-opacity="0.161" />
+        <feComposite operator="in" in2="blur" />
+        <feComposite in="SourceGraphic" />
+      </filter>
+    </defs>
+    <g
+      id="icon_K8S_叢集服務_56"
+      data-name="icon_K8S 叢集服務_56"
+      transform="translate(-36 -81)"
+    >
+      <circle
+        id="Ellipse_1064"
+        data-name="Ellipse 1064"
+        cx="28"
+        cy="28"
+        r="28"
+        transform="translate(36 81)"
+        :fill="iconColor.round"
+      />
+      <g id="hub_black_24dp" transform="translate(50 95)">
+        <rect
+          id="Rectangle_2144"
+          data-name="Rectangle 2144"
+          width="28"
+          height="28"
+          fill="none"
+        />
+        <g transform="matrix(1, 0, 0, 1, -14, -14)" filter="url(#Path_17252)">
+          <path
+            id="Path_17252-2"
+            data-name="Path 17252"
+            d="M9.8,21.233a3.444,3.444,0,0,1,.7,2.1,3.488,3.488,0,1,1-2.065-3.2l1.645-2.065a5.255,5.255,0,0,1-1.272-4.305L6.44,12.973A3.493,3.493,0,1,1,7,11.083a1.723,1.723,0,0,1-.012.245l2.368.793a5.213,5.213,0,0,1,3.757-2.707V6.9a3.506,3.506,0,1,1,1.762,0v2.52a5.213,5.213,0,0,1,3.757,2.707L21,11.328v-.245a3.5,3.5,0,1,1,.56,1.9l-2.368.793a5.238,5.238,0,0,1-1.272,4.3l1.645,2.065A3.309,3.309,0,0,1,21,19.833a3.5,3.5,0,1,1-3.5,3.5,3.444,3.444,0,0,1,.7-2.1l-1.645-2.065a5.249,5.249,0,0,1-5.1,0Z"
+            transform="translate(14 14)"
+            :fill="iconColor.icon"
+          />
+        </g>
+      </g>
+    </g>
+  </svg>
+</template>
+<script lang="ts" setup>
+import { computed } from 'vue';
+
+import useSvgIcons from '@/composables/useSvgIcons';
+
+const props = defineProps({
+  colorful: {
+    type: Boolean,
+    default: true,
+  },
+});
+const { getSvgThemeColor, IconKeys } = useSvgIcons();
+const iconColor = computed(() => {
+  return getSvgThemeColor(props.colorful, IconKeys.k8s_cluster);
+});
+</script>

@@ -1,0 +1,21 @@
+:deep(.v-chip) {
+  cursor: default;
+  background-color: rgba(
+    var(--v-theme-bg-chip),
+    var(--v-chip-opacity)
+  ) !important;
+  .v-chip__underlay {
+    opacity: 0;
+  }
+  .v-chip__close {
+    .v-icon {
+      color: rgba(
+        var(--v-theme-text-general),
+        var(--v-chip-icon-opacity)
+      ) !important;
+      &:hover {
+        color: rgb(var(--v-theme-primary)) !important;
+      }
+    }
+  }
+}

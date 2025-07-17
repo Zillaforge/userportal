@@ -1,0 +1,26 @@
+.v-list {
+  padding: 0px;
+}
+
+.v-list-item {
+  &:hover {
+    background-color: rgba(
+      var(--v-theme-drawer-item-selected-color),
+      var(--v-list-item-hover-opacity)
+    );
+  }
+  > .v-list-item__overlay {
+    opacity: 0 !important;
+  }
+  &.v-list-item--disabled {
+    opacity: var(--v-text-disabled-opacity);
+  }
+}
+
+.v-select__content,
+.v-overlay__content {
+  .v-list {
+    height: 100%;
+    background-color: rgb(var(--v-theme-bg-list)) !important;
+  }
+}

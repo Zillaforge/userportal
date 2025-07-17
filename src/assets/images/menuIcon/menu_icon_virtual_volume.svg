@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon_虛擬磁碟_24" transform="translate(-2)">
+    <rect id="bound" width="24" height="24" transform="translate(2)" fill="none"/>
+    <path id="harddisk" d="M6,2H18a2,2,0,0,1,2,2V20a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V4A2,2,0,0,1,6,2m6,2a6,6,0,1,0,.1,12l-.88-2.23a1.01,1.01,0,0,1,.37-1.37l.86-.5a1.01,1.01,0,0,1,1.37.37l1.92,2.42A6,6,0,0,0,12,4m0,5a1,1,0,1,1-1,1,1,1,0,0,1,1-1M7,18a1,1,0,1,0,1,1,1,1,0,0,0-1-1m5.09-4.73,2.49,6.31,2.59-1.5-4.22-5.31Z" transform="translate(2 0)" fill="#fff"/>
+  </g>
+</svg>

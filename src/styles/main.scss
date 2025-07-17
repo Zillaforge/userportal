@@ -1,0 +1,20 @@
+@import 'base/colors.scss';
+@import 'base/basic.scss';
+@import 'base/layout.scss';
+@import 'elements/card';
+@import 'elements/buttons';
+@import 'elements/table';
+@import 'vuetify-overwrite/index.scss';
+@import 'vuetify-overwrite/v-list-item.scss';
+
+.disabled {
+  filter: opacity(0.38);
+}
+
+body {
+  span,
+  div,
+  label {
+    font-size: 14px !important;
+  }
+}

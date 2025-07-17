@@ -1,0 +1,17 @@
+const SESSION_STORAGE_KEY_PREFIX = 'notification-info-';
+
+export const SESSION_STORAGE_KEY = {
+  SERVICE_TYPE: SESSION_STORAGE_KEY_PREFIX + 'service-type',
+  SERVICE_ID: SESSION_STORAGE_KEY_PREFIX + 'service-id',
+  PROJECT_ID: SESSION_STORAGE_KEY_PREFIX + 'project-id',
+  AD: SESSION_STORAGE_KEY_PREFIX + 'ad',
+};
+
+export const NOTIFICATION_SERVICE_TYPE = {
+  CKS: 'CKS',
+  CKS_ADD_NODE: 'CKS-ADD-NODE',
+  APS: 'APS',
+  VPS_ASG: 'VPS-ASG',
+  VPS_VM: 'VPS-VM',
+  VPS_FIP: 'VPS-FIP',
+};

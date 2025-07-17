@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="475.489" height="91.183" viewBox="0 0 475.489 91.183">
+  <defs>
+    <filter id="國網中心雲平台" x="127.489" y="4" width="348" height="83" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_879" x="102.001" y="6.094" width="21.488" height="22.048" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-2"/>
+      <feFlood flood-opacity="0.4"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_880" x="0" y="0" width="122.908" height="91.183" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-3"/>
+      <feFlood flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Logo" transform="translate(1 -81.681)">
+    <g id="Logo-2" data-name="Logo" transform="translate(-25 73)">
+      <g transform="matrix(1, 0, 0, 1, 24, 8.68)" filter="url(#國網中心雲平台)">
+        <text id="國網中心雲平台-2" data-name="國網中心雲平台" transform="translate(133.49 64)" fill="#fff" font-size="48" font-family="NotoSansCJKtc-Medium, Noto Sans CJK TC" font-weight="500"><tspan x="0" y="0">國網中心雲平台</tspan></text>
+      </g>
+      <g id="NCHC_LOGO" data-name="NCHC LOGO" transform="translate(30 12.681)">
+        <g transform="matrix(1, 0, 0, 1, -6, -4)" filter="url(#Path_879)">
+          <path id="Path_879-2" data-name="Path 879" d="M409.179,441.252a4.913,4.913,0,0,0,4.794-4.982,5.014,5.014,0,0,0-4.794-5.066,4.938,4.938,0,0,0-4.694,5.066A4.838,4.838,0,0,0,409.179,441.252Z" transform="translate(-296.48 -421.11)" fill="#c43429"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, -6, -4)" filter="url(#Path_880)">
+          <path id="Path_880-2" data-name="Path 880" d="M167.163,448.637l-1.387-4.056H154.619L149.729,464.4h14.585l-1.488-4.43-7.276.1,2.76-11.434ZM144.842,464.4l4.8-19.733H144.4l-2.036,8.669-5.72-.1,2.116-8.663H133.6L128.519,464.4h5.258l1.668-7.276h5.892l-1.38,7.276Zm46.114-44.631,2.13-1.486c-23.163-15.119-71.2,1.106-85.865,22.789h7.653c18.173-19.811,51.549-35.325,76.082-21.3Zm9.316,10.246-2.393.367c4.05,40.665-72.587,71.723-93.058,41.57l59.946-.561v-3.857l-69.818.19c.649,48.05,110.112,17.327,105.325-37.709ZM101.047,464.4l3.5-.092,5.815-19.731h-4.889l-2.679,8.936-2.671-8.936h-4.8L89.517,464.4l4.972-.092,2.859-9.959Zm25.915-15.767-1.385-4.056H114.5L109.524,464.4H124.09l-1.463-4.43-7.29.1,2.767-11.434Z" transform="translate(-83.52 -408.39)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg id="icon_審核機制_24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_17053" data-name="Group 17053">
+    <rect id="Rectangle_6298" data-name="Rectangle 6298" width="24" height="24" fill="none"/>
+  </g>
+  <g id="Group_17055" data-name="Group 17055">
+    <g id="Group_17054" data-name="Group 17054">
+      <path id="Path_22872" data-name="Path 22872" d="M20,3H4A2.006,2.006,0,0,0,2,5V19a2.006,2.006,0,0,0,2,2H20a2.006,2.006,0,0,0,2-2V5A2.006,2.006,0,0,0,20,3Zm0,16H4V5H20Z" fill="rgba(0,0,0,0.87)" fill-rule="evenodd"/>
+      <path id="Path_22873" data-name="Path 22873" d="M19.41,10.42,17.99,9l-3.17,3.17-1.41-1.42L12,12.16,14.82,15Z" fill="rgba(0,0,0,0.87)" fill-rule="evenodd"/>
+      <rect id="Rectangle_6299" data-name="Rectangle 6299" width="5" height="2" transform="translate(5 7)" fill="rgba(0,0,0,0.87)"/>
+      <rect id="Rectangle_6300" data-name="Rectangle 6300" width="5" height="2" transform="translate(5 11)" fill="rgba(0,0,0,0.87)"/>
+      <rect id="Rectangle_6301" data-name="Rectangle 6301" width="5" height="2" transform="translate(5 15)" fill="rgba(0,0,0,0.87)"/>
+    </g>
+  </g>
+</svg>

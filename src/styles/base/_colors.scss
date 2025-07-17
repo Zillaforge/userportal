@@ -1,0 +1,14 @@
+.ocis-text-highlight {
+  color: rgb(var(--v-theme-text-highlight)) !important;
+}
+
+.ocis-text-disabled {
+  color: rgba(
+    var(--v-theme-text-disabled),
+    var(--v-text-disabled-opacity)
+  ) !important;
+}
+
+.ocis-text-alert {
+  color: rgb(var(--v-theme-error));
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon__Container_Service__24" data-name="icon_ Container Service_ 24" transform="translate(0 0.001)">
+    <rect id="Bound" width="24" height="24" transform="translate(0 -0.001)" fill="#fff" opacity="0"/>
+    <path id="Path_2052" data-name="Path 2052" d="M12,11.09l9-4.545v10.91L12,22Z" fill="#fff"/>
+    <path id="Line" d="M21.451,5.652l-9-4.545a1,1,0,0,0-.9,0l-9,4.545A1,1,0,0,0,2,6.545v10.91a1,1,0,0,0,.549.893l9,4.545c.009,0,.02,0,.029.007a.94.94,0,0,0,.844,0c.009,0,.02,0,.029-.007l9-4.545A1,1,0,0,0,22,17.455V6.545A1,1,0,0,0,21.451,5.652ZM12,3.12l6.782,3.425L12,9.97,5.218,6.545ZM4,8.17l7,3.536v8.669L4,16.84Zm9,12.2V11.706L20,8.17v8.67Z" fill="#fff"/>
+  </g>
+</svg>

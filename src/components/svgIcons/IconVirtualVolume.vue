@@ -1,0 +1,73 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="56"
+    height="56"
+    viewBox="0 0 56 56"
+  >
+    <defs>
+      <filter
+        id="harddisk"
+        x="9.667"
+        y="10.334"
+        width="36.667"
+        height="41.334"
+        filterUnits="userSpaceOnUse"
+      >
+        <feOffset dy="3" input="SourceAlpha" />
+        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feFlood flood-opacity="0.161" />
+        <feComposite operator="in" in2="blur" />
+        <feComposite in="SourceGraphic" />
+      </filter>
+    </defs>
+    <g id="icon_虛擬磁碟_56" transform="translate(-36 -81)">
+      <circle
+        id="Ellipse_1064"
+        data-name="Ellipse 1064"
+        cx="28"
+        cy="28"
+        r="28"
+        transform="translate(36 81)"
+        :fill="iconColor.round"
+      />
+      <g id="Disk" transform="translate(50 95)">
+        <g id="icon" transform="translate(-2)">
+          <rect
+            id="bound"
+            width="28"
+            height="28"
+            transform="translate(2)"
+            fill="none"
+          />
+          <g transform="matrix(1, 0, 0, 1, -12, -14)" filter="url(#harddisk)">
+            <path
+              id="harddisk-2"
+              data-name="harddisk"
+              d="M6.333,2h14a2.333,2.333,0,0,1,2.333,2.333V23a2.333,2.333,0,0,1-2.333,2.333h-14A2.333,2.333,0,0,1,4,23V4.333A2.333,2.333,0,0,1,6.333,2m7,2.333a7,7,0,1,0,.117,14l-1.027-2.6a1.179,1.179,0,0,1,.432-1.6l1-.583a1.179,1.179,0,0,1,1.6.432L17.7,16.8A7,7,0,0,0,13.333,4.333m0,5.833a1.167,1.167,0,1,1-1.167,1.167,1.167,1.167,0,0,1,1.167-1.167M7.5,20.667a1.167,1.167,0,1,0,1.167,1.167A1.167,1.167,0,0,0,7.5,20.667m5.938-5.518,2.905,7.362,3.022-1.75-4.923-6.195Z"
+              transform="translate(14.67 14.33)"
+              :fill="iconColor.icon"
+            />
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+</template>
+<script lang="ts" setup>
+import { computed } from 'vue';
+
+import useSvgIcons from '@/composables/useSvgIcons';
+
+const props = defineProps({
+  colorful: {
+    type: Boolean,
+    default: true,
+  },
+});
+const { getSvgThemeColor, IconKeys } = useSvgIcons();
+const iconColor = computed(() => {
+  return getSvgThemeColor(props.colorful, IconKeys.virtual_volume);
+});
+</script>

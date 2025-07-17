@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <filter id="wall-fire" x="6.166" y="11.5" width="42.632" height="39.652" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="icon_防火牆_56" transform="translate(-36 -81)">
+    <circle id="Ellipse_1064" data-name="Ellipse 1064" cx="28" cy="28" r="28" transform="translate(36 81)" fill="#bf5050"/>
+    <g id="Firewall" transform="translate(-16891 15924)">
+      <rect id="Rectangle_6210" data-name="Rectangle 6210" width="28" height="28" transform="translate(16941 -15829)" fill="none"/>
+      <g transform="matrix(1, 0, 0, 1, 16927, -15843)" filter="url(#wall-fire)">
+        <path id="wall-fire-2" data-name="wall-fire" d="M25.5,17.23l-.023.012a4.9,4.9,0,0,1,.677,1.073l.1.222a5.11,5.11,0,0,1-1.283,5.67,6.3,6.3,0,0,1-5.122,1.377,5.819,5.819,0,0,1-4.165-2.765,5.248,5.248,0,0,1-.618-1.493,4.79,4.79,0,0,1-.233-1.283,6.181,6.181,0,0,1,2.053-5.017,4.379,4.379,0,0,0,.455,4.4l.128.152a.533.533,0,0,0,.548.1.492.492,0,0,0,.315-.432l-.082-.28a6.878,6.878,0,0,1,2.018-7.653,5.646,5.646,0,0,1,2.1-1.132,4.3,4.3,0,0,0,.735,4.9c.537.583,1.19.922,1.738,1.435l.653.712m-2.66,5.437-.012-.035a2.545,2.545,0,0,0,.793-1.937l-.035-.362c-.233-1.167-1.248-1.563-1.9-2.415l-.5-.91A2.934,2.934,0,0,0,21,18.77a5.149,5.149,0,0,1,.245,1.925,2.394,2.394,0,0,1-1.82,1.762,2.466,2.466,0,0,0,2.473.7,3.107,3.107,0,0,0,.933-.49M3.167,18h9.4l-.07,1.167a9.266,9.266,0,0,0,1.167,4.527v.14H3.167V18M2,11H9v5.833H2V11m8.167,0h7v.082a9.37,9.37,0,0,0-4.375,5.752H10.167V11m-7-7H12.5V9.833H3.167V4m10.5,0h10.5V9.833h-10.5Z" transform="translate(13.17 13.5)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

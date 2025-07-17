@@ -1,0 +1,11 @@
+.v-btn__overlay {
+  opacity: 0 !important;
+}
+
+.v-ripple__animation--in {
+  opacity: var(--v-ripple-opacity) !important;
+}
+
+.v-ripple__container {
+  color: rgb(var(--v-theme-ripple-color)) !important;
+}

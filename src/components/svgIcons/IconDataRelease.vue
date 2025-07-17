@@ -1,0 +1,71 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="56"
+    height="56"
+    viewBox="0 0 56 56"
+  >
+    <defs>
+      <filter
+        id="Path_17312"
+        x="8.5"
+        y="11.5"
+        width="39"
+        height="39"
+        filterUnits="userSpaceOnUse"
+      >
+        <feOffset dy="3" input="SourceAlpha" />
+        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feFlood flood-opacity="0.161" />
+        <feComposite operator="in" in2="blur" />
+        <feComposite in="SourceGraphic" />
+      </filter>
+    </defs>
+    <g id="icon_資料攜出服務_56" transform="translate(-36 -81)">
+      <circle
+        id="Ellipse_1064"
+        data-name="Ellipse 1064"
+        cx="28"
+        cy="28"
+        r="28"
+        transform="translate(36 81)"
+        :fill="iconColor.round"
+      />
+      <g id="unarchive_black_24dp" transform="translate(50 95)">
+        <rect
+          id="Rectangle_2166"
+          data-name="Rectangle 2166"
+          width="28"
+          height="28"
+          fill="none"
+        />
+        <g transform="matrix(1, 0, 0, 1, -14, -14)" filter="url(#Path_17312)">
+          <path
+            id="Path_17312-2"
+            data-name="Path 17312"
+            d="M23.475,5.59,21.853,3.63A1.761,1.761,0,0,0,20.5,3H6.5a1.693,1.693,0,0,0-1.342.642L3.537,5.59A2.316,2.316,0,0,0,3,7.083V21.667A2.333,2.333,0,0,0,5.333,24H21.667A2.34,2.34,0,0,0,24,21.667V7.083A2.372,2.372,0,0,0,23.475,5.59ZM13.5,10.583,19.917,17H15.833v2.333H11.167V17H7.083ZM5.473,5.333,6.43,4.167h14l1.085,1.167Z"
+            transform="translate(14.5 14.5)"
+            :fill="iconColor.icon"
+          />
+        </g>
+      </g>
+    </g>
+  </svg>
+</template>
+<script lang="ts" setup>
+import { computed } from 'vue';
+
+import useSvgIcons from '@/composables/useSvgIcons';
+
+const props = defineProps({
+  colorful: {
+    type: Boolean,
+    default: true,
+  },
+});
+const { getSvgThemeColor, IconKeys } = useSvgIcons();
+const iconColor = computed(() => {
+  return getSvgThemeColor(props.colorful, IconKeys.data_release);
+});
+</script>

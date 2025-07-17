@@ -1,0 +1,70 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="56"
+    height="56"
+    viewBox="0 0 56 56"
+  >
+    <defs>
+      <filter
+        id="Path_17283"
+        x="8.5"
+        y="9.166"
+        width="39"
+        height="43.666"
+        filterUnits="userSpaceOnUse"
+      >
+        <feOffset dy="3" input="SourceAlpha" />
+        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feFlood flood-opacity="0.161" />
+        <feComposite operator="in" in2="blur" />
+        <feComposite in="SourceGraphic" />
+      </filter>
+    </defs>
+    <g id="icon_安全群組_56" transform="translate(-36 -81)">
+      <circle
+        id="Ellipse_1064"
+        data-name="Ellipse 1064"
+        cx="28"
+        cy="28"
+        r="28"
+        transform="translate(36 81)"
+        :fill="iconColor.round"
+      />
+      <g id="security_black_24dp" transform="translate(50 95)">
+        <path
+          id="Path_17282"
+          data-name="Path 17282"
+          d="M0,0H28V28H0Z"
+          fill="none"
+        />
+        <g transform="matrix(1, 0, 0, 1, -14, -14)" filter="url(#Path_17283)">
+          <path
+            id="Path_17283-2"
+            data-name="Path 17283"
+            d="M13.5,1,3,5.667v7c0,6.475,4.48,12.53,10.5,14,6.02-1.47,10.5-7.525,10.5-14v-7Zm0,12.822h8.167c-.618,4.807-3.827,9.088-8.167,10.43V13.833H5.333V7.183L13.5,3.555V13.822Z"
+            transform="translate(14.5 14.17)"
+            :fill="iconColor.icon"
+          />
+        </g>
+      </g>
+    </g>
+  </svg>
+</template>
+<script lang="ts" setup>
+import { computed } from 'vue';
+
+import useSvgIcons from '@/composables/useSvgIcons';
+
+const props = defineProps({
+  colorful: {
+    type: Boolean,
+    default: true,
+  },
+});
+const { getSvgThemeColor, IconKeys } = useSvgIcons();
+const iconColor = computed(() => {
+  return getSvgThemeColor(props.colorful, IconKeys.security_group);
+});
+</script>

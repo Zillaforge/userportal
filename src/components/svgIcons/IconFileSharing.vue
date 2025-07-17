@@ -1,0 +1,79 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="56"
+    height="56"
+    viewBox="0 0 56 56"
+  >
+    <defs>
+      <filter
+        id="file-replace-outline"
+        x="7.334"
+        y="9.166"
+        width="40.167"
+        height="43.666"
+        filterUnits="userSpaceOnUse"
+      >
+        <feOffset dy="3" input="SourceAlpha" />
+        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feFlood flood-opacity="0.161" />
+        <feComposite operator="in" in2="blur" />
+        <feComposite in="SourceGraphic" />
+      </filter>
+    </defs>
+    <g id="icon_檔案共享_56" transform="translate(-36 -81)">
+      <circle
+        id="Ellipse_1064"
+        data-name="Ellipse 1064"
+        cx="28"
+        cy="28"
+        r="28"
+        transform="translate(36 81)"
+        :fill="iconColor.round"
+      />
+      <g
+        id="Group_3837"
+        data-name="Group 3837"
+        transform="translate(5718 20243)"
+      >
+        <rect
+          id="Rectangle_2172"
+          data-name="Rectangle 2172"
+          width="28"
+          height="28"
+          transform="translate(-5668 -20148)"
+          fill="none"
+        />
+        <g
+          transform="matrix(1, 0, 0, 1, -5682, -20162)"
+          filter="url(#file-replace-outline)"
+        >
+          <path
+            id="file-replace-outline-2"
+            data-name="file-replace-outline"
+            d="M16,3.333,13.667,1H4.333A2.333,2.333,0,0,0,2,3.333v14a2.333,2.333,0,0,0,2.333,2.333H12.5V22l4.667-3.5L12.5,15v2.333H4.333v-14H16M24.167,11.5V24.333a2.333,2.333,0,0,1-2.333,2.333H9a2.333,2.333,0,0,1-2.333-2.333V22H9v2.333H21.833v-10.5H16V8H9v7H6.667V8A2.333,2.333,0,0,1,9,5.667h9.333Z"
+            transform="translate(14.33 14.17)"
+            :fill="iconColor.icon"
+          />
+        </g>
+      </g>
+    </g>
+  </svg>
+</template>
+<script lang="ts" setup>
+import { computed } from 'vue';
+
+import useSvgIcons from '@/composables/useSvgIcons';
+
+const props = defineProps({
+  colorful: {
+    type: Boolean,
+    default: true,
+  },
+});
+const { getSvgThemeColor, IconKeys } = useSvgIcons();
+const iconColor = computed(() => {
+  return getSvgThemeColor(props.colorful, IconKeys.file_sharing);
+});
+</script>

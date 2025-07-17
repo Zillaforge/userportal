@@ -1,0 +1,62 @@
+.ocis-main-content {
+  min-width: calc(var(--v-content-min-width) - var(--v-menu-width));
+  margin: 0px !important;
+  padding: 20px 64px 0px;
+  align-content: flex-start;
+  height: calc(100vh - 102px);
+  &.create-view-content {
+    height: calc(100vh - 182px);
+  }
+}
+
+.ocis-external-link {
+  text-underline-position: under;
+  font-size: 16px !important;
+  color: rgb(var(--v-theme-text-highlight)) !important;
+  cursor: pointer;
+  &:not(:hover) {
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration-line: underline;
+    text-decoration-color: rgb(var(--v-theme-primary));
+  }
+}
+
+.ocis-last-updated-time {
+  display: flex;
+  color: rgb(var(--v-theme-text-highlight));
+  align-items: center;
+  float: right;
+}
+
+.ocis-form-title {
+  line-height: 60px;
+  text-align: left;
+  padding: 0px; // overwrite the padding config of v-col-x
+}
+
+.ocis-input-required::after {
+  content: ' *';
+  color: rgb(var(--v-theme-alert-color));
+}
+
+.ocis-detail-scroll-view {
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+}
+
+.ocis-content-key {
+  color: rgba(var(--v-theme-text-general), var(--v-text-general-opacity));
+  padding: 0px 4px 24px 0px !important;
+}
+
+.ocis-content-value {
+  color: rgba(var(--v-theme-text-content), var(--v-text-content-opacity));
+  padding: 0px 4px 24px 4px !important;
+  word-break: break-all;
+}
+
+.ocis-combobox-menu :is(.v-list-item--active) .v-list-item-title {
+  color: rgba(var(--v-theme-text-general), var(--v-text-general-opacity));
+}
