@@ -1,4 +1,4 @@
-OWNER ?= ociscloud
+OWNER ?= Zillaforge
 IMAGE_NAME ?= trust-portal
 VERSION ?= $(shell sed -n '2p' src/constants/Version.ts | cut -d\' -f2)
 PWD := $(shell pwd)
